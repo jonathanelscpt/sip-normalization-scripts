@@ -1,9 +1,5 @@
 --[[
 
-	Author : Jonathan Els
-	Email  : jonathanelscpt@gmail.com
-	Version : 3.0
-
 	Description:
 	
 		Find and replace FQDN with IP in Contact headers.
@@ -51,14 +47,11 @@ local function process_contact_headers
 		end
 	end
 
-
 end
 
 -- Apply to INVITE request and all INVITE responses
 M.inbound_INVITE = process_contact_headers
 M.inbound_ANY_INVITE = process_contact_headers
-
-
 
 
 return M
