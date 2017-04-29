@@ -1,8 +1,4 @@
 --[[
-
-	Author : Jonathan Els
-	Email : jonathan.els@sizwegroup.co.za
-	Version	: 1.0
 	
     Description:
 	
