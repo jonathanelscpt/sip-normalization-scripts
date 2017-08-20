@@ -1,13 +1,13 @@
 --[[
 
-	Description:
-	
-		Find and replace FQDN with IP in Contact headers.
-		Script is applied to Inbound INVITEs and all Inbound INVITE responses
-	
-	Future development:
-	
-		None planned
+    Description:
+    
+        Find and replace FQDN with IP in Contact headers.
+        Script is applied to Inbound INVITEs and all Inbound INVITE responses
+    
+    Future development:
+    
+        None planned
 
 --]]
 
@@ -24,28 +24,28 @@ dns["3.3.3.3"] = "hostname3%.subdomain%.rootdomain%.com"
 
 local function process_contact_headers
 
-	-- Get Contact header
+    -- Get Contact header
     local contact = msg:getHeader("Contact")
-	local iptest = "@(%d+%.%d+%.%d+%.%d+)"
-	
-	-- Check if exists and if URI host portion is FQDN
-	if contact and not contact:match(iptest) then
-		trace.format(" -- Contact URI host portion matched FQDN")
-		trace.format(" -- Contact header is : %s", contact)
-		
-		-- Iterate over domain and substitute if matched
-		for ip,fqdn in pairs(dns) do
-			if contact:match(fqdn) then
-				contact = contact:gsub(fqdn, ip)
-				trace.format(" -- Matched on : %s", fqdn)
-				trace.format(" -- Modified to : %s", ip)
+    local iptest = "@(%d+%.%d+%.%d+%.%d+)"
+    
+    -- Check if exists and if URI host portion is FQDN
+    if contact and not contact:match(iptest) then
+        trace.format(" -- Contact URI host portion matched FQDN")
+        trace.format(" -- Contact header is : %s", contact)
+        
+        -- Iterate over domain and substitute if matched
+        for ip,fqdn in pairs(dns) do
+            if contact:match(fqdn) then
+                contact = contact:gsub(fqdn, ip)
+                trace.format(" -- Matched on : %s", fqdn)
+                trace.format(" -- Modified to : %s", ip)
 
-				-- Modify contact header
-				msg:modifyHeader("Contact", contact)
-				break
-			end
-		end
-	end
+                -- Modify contact header
+                msg:modifyHeader("Contact", contact)
+                break
+            end
+        end
+    end
 
 end
 
