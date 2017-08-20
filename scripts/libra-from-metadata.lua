@@ -2,8 +2,12 @@
     
     Description:
     
+        Workaround for defect in Libra Recorder CTI Matching ignoring recording headers (.e.g. x-nearendaddr and x-farendaddr),
+        which contain the exact DNs required for matching purposes.  From/RURI may (correctly) contain mis-matches in the 
+        event of calling party normalization as part of standard E.164 dial plans.
+
         Normalize From header by replacing URI host portion with what is sent in metadata for "x-nearendaddr" tag.  
-        This matches the phone's actual extension and facilitates Libra call recording that currently looks at URI host portion only.
+        Matches the phone's actual extension and facilitates Libra call recording that currently looks at URI host portion only.
         
     Notes:
     
@@ -12,13 +16,14 @@
 
     Exceptions:
     
-        None
+        None known
     
     Future development:
     
         None
     
 --]] 
+ 
  
  M = {}
  trace.enable()
