@@ -5,7 +5,7 @@
 
     Description:
     
-        This script is used to meet a limited use case for forwarding to VM, to reach the VM box of the \
+        This script is used to meet a limited use case for forwarding to VM, to reach the VM box of the
         LAST Line Group member in call hunting scenarios, such as:
 
         Call: B(126) -> Fwd to Hunt Group ->  [C(163) -  D(129) – A(122)] -> Fwd to Voice Mail (A)
