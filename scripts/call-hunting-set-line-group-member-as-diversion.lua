@@ -26,11 +26,6 @@
         The script allows for multiple multiple hunt pilots to map to a SINGLE final user's voicemail box.  It does currently not
         support multiple mappings.
 
-        Script doesn't write Diversion table working into final outbound INVITE.  Only a single modified Diversion header is passed to Unity. 
-
-        Usage with the Unity Advanced > Conversations "Use Last (Rather than First) Redirecting Number for Routing Incoming Call"
-        enabled may require script modification and testing.
-
 --]] 
 
 
