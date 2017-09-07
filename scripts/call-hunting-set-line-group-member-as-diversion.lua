@@ -31,8 +31,6 @@
         Usage with the Unity Advanced > Conversations "Use Last (Rather than First) Redirecting Number for Routing Incoming Call"
         enabled may require script modification and testing.
 
-        May not observe expected Unity locale in a multi-locale deployment due to Hunt Pilot forwarding stations. 
-
 --]] 
 
 
@@ -47,20 +45,33 @@ function M.outbound_INVITE(msg)
 
     if huntPilotPattern and finalVmUser then
 
-        local callid = msg:getHeader("Call-ID")
-        trace.format("M.outbound_INVITE: callid is '%s'", callid)
+        local callID = msg:getHeader("Call-ID")
+        trace.format("M.outbound_INVITE: Call-ID is '%s'", callID)
         trace.format("Hunt Pilot Pattern is '%s'", huntPilotPattern)
         trace.format("Final VM User is '%s'", finalVmUser)
 
-        local DiversionTable = msg:getHeaderValues("Diversion")
+        local diversionTable = msg:getHeaderValues("Diversion")
 
         -- only applied for multiple forwarding and when final forwarding station matches hunt pilot pattern
-        if #DiversionTable > 1 and string.match(DiversionTable[1], 'sip:' .. huntPilotPattern .. '@') then
-            firstDiversion = DiversionTable[1]
-            trace.format("First Diversion Header is '%s'", firstDiversion)
-            newFirstDiversion = string.gsub(firstDiversion , "<sip:.*@" , "<sip:" .. finalVmUser .. "@")
-            trace.format("Modified Diversion Header is '%s'", newFirstDiversion)
-            msg:modifyHeader("Diversion", newFirstDiversion)
+        if #diversionTable > 1 and string.match(diversionTable[1], 'sip:' .. huntPilotPattern .. '@') then
+
+            local lastForwardingStation = diversionTable[1]
+            trace.format("Existing first Diversion header is '%s'", lastForwardingStation)
+            local newForwardingStation = string.gsub(lastForwardingStation , "<sip:.*@" , "<sip:" .. finalVmUser .. "@")
+            trace.format("New first Diversion header is '%s'", newForwardingStation)
+            -- insert new header at start of list
+            -- table.insert(diversionTable, 1, newForwardingStation)  -- table built-ins not supported by CUCM
+
+            -- remove existing Diversion headers from SIP message
+            for k,v in ipairs(msg:getHeaderValues("Diversion")) do
+                msg:removeHeaderValue("Diversion", v)
+            end
+
+            msg:addHeader("Diversion", newForwardingStation) -- workaround for table.insert limitation
+            -- write new header from modified Diversion table
+            for k,v in ipairs(diversionTable) do
+                msg:addHeader("Diversion", v)
+            end
         end
     end
 
