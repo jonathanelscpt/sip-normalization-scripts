@@ -1,7 +1,6 @@
 --[[
 
     Author : Jonathan Els
-    Email : jonathan.els@sizwegroup.co.za
     Version : 1.0
     
     Description:
@@ -12,6 +11,9 @@
     
         Call flow is used from CUC Call Handler, transferring to a CTIRP that has CFA to ITSP.  Workflow includes re-masking the Diversion Header from internal DN on CTIRP to DID.
 
+    Future development:
+    
+        None
 --]] 
 
 M = {}

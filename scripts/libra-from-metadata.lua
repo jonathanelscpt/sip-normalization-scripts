@@ -1,5 +1,8 @@
 --[[
     
+    Author : Jonathan Els
+    Version : 1.0
+
     Description:
     
         Workaround for defect in Libra Recorder CTI Matching ignoring recording headers (.e.g. x-nearendaddr and x-farendaddr),
@@ -16,7 +19,7 @@
 
     Exceptions:
     
-        None known
+        None
     
     Future development:
     

@@ -1,3 +1,18 @@
+--[[
+
+    Author : Jonathan Els
+    Version : 0.1
+    
+    Description:
+    
+        Overwrite private IP addresses in SDP for NAT'd call flows to specified public IP.
+        Overcomes entry-level FW limitations.
+        
+    Notes:
+    
+        NOT EXTENSIVELY TESTED
+--]]
+
 M = {}
 
 -- enable tracing for writing to SDL

@@ -1,5 +1,8 @@
 --[[
 
+    Author : Jonathan Els
+    Version : 1.0
+    
     Description:
     
     Script for separate handling of MWI to accommodate proxied partitions for centralized voicemail designs with SME - e.g. with Proxied Manager/Secretary configurations

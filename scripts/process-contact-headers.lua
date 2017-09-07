@@ -1,5 +1,8 @@
 --[[
 
+    Author : Jonathan Els
+    Version : 1.0
+    
     Description:
     
         Find and replace FQDN with IP in Contact headers.
