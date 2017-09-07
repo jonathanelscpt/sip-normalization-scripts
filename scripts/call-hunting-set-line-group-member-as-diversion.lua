@@ -1,17 +1,18 @@
 --[[
 
     Author : Jonathan Els
-    Version : 1.0
+    Version : 1.1
 
     Description:
     
-        This script is used to meet a limited use case for forwarding to VM, to reach the VM box of the LAST Line Group member
-        in call hunting scenarios, such as:
+        This script is used to meet a limited use case for forwarding to VM, to reach the VM box of the \
+        LAST Line Group member in call hunting scenarios, such as:
 
         Call: B(126) -> Fwd to Hunt Group ->  [C(163) -  D(129) – A(122)] -> Fwd to Voice Mail (A)
 
-        The script looks at the last forwarding station, matches this against a hunt pilot dn pattern.  if matched, it removes all
-        diversion headers and configures a single diversion header, with a voice mailbox specified as a script param.
+        The script looks at the last forwarding station, matches this against a hunt pilot dn pattern.
+        If matched, it removes all diversion headers and configures a single diversion header, with a voice 
+        mailbox specified as a script param.
 
         Supported matching multiple hunt pilots and for routing to the same final voice mailbox.
 
@@ -23,8 +24,8 @@
 
     Limitations:
     
-        The script allows for multiple multiple hunt pilots to map to a SINGLE final user's voicemail box.  It does currently not
-        support multiple mappings.
+        The script allows for multiple multiple hunt pilots to map to a SINGLE final user's voicemail box.  
+        It does currently NOT support pilot/mailbox mappings.
 
 --]] 
 
