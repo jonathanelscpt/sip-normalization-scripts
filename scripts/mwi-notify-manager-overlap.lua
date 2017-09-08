@@ -5,12 +5,15 @@
     
     Description:
     
-    Script for separate handling of MWI to accommodate proxied partitions for centralized voicemail designs with SME - e.g. with Proxied Manager/Secretary configurations
+    Script for separate handling of MWI to accommodate proxied partitions for centralized voicemail designs with SME
+    e.g. with Proxied Manager/Secretary configurations.
+
     Script strips initial chars to add a prefix for custom routing - via script params configured on CUCM
     
     Future development:
     
-        1. Add checks specifically limit to MWI - possibly match on Content (message-waiting etc.) or source address
+        - Add checks specifically limit to MWI scenarios only.  Possibly match on Content (message-waiting etc.)
+          or source address.
 
 --]]
 

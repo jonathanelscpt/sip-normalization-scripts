@@ -5,12 +5,17 @@
     
     Description:
     
-        Overwrite private IP addresses in SDP for NAT'd call flows to specified public IP.
-        Overcomes entry-level FW limitations.
+        Overwrite private IP addresses in SDP for NAT'd call flows to specified public IP.  Overcomes entry-level 
+        FW limitations.
         
     Notes:
     
-        NOT EXTENSIVELY TESTED
+        NOT EXTENSIVELY TESTED.  Use at own risk.
+
+    Future development:
+    
+        None
+
 --]]
 
 M = {}

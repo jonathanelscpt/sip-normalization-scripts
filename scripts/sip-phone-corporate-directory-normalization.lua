@@ -7,8 +7,15 @@
     Description:
     
         Parsing of Corp. Dir for SIP-based phones, prior to CUCM call initiation.
-        Appied to SIP Profile of SIP Phone in CUCM
+        
+    Deployment:
+
+        Appied to SIP Profile of SIP Phone in CUCM.
     
+    Future development:
+    
+        None
+
 --]]
 
 M={}

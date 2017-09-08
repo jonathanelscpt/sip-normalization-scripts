@@ -5,12 +5,12 @@
     
     Description:
     
-        Find and replace FQDN with IP in Contact headers.
-        Script is applied to Inbound INVITEs and all Inbound INVITE responses
-    
+        Find and replace FQDN with IP in Contact headers. Script is applied to Inbound INVITEs and all 
+        Inbound INVITE responses.
+
     Future development:
     
-        None planned
+        None
 
 --]]
 

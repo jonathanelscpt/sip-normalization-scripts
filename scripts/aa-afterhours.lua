@@ -9,7 +9,8 @@
         
     Notes:
     
-        Call flow is used from CUC Call Handler, transferring to a CTIRP that has CFA to ITSP.  Workflow includes re-masking the Diversion Header from internal DN on CTIRP to DID.
+        Call flow is used from CUC Call Handler, transferring to a CTIRP that has CFA to ITSP.  
+        Workflow allows for re-masking the Diversion Header from internal DN on CTIRP to the Main number DID.
 
     Future development:
     
