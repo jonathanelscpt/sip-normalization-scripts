@@ -10,9 +10,9 @@
 
         Call: B(126) -> Fwd to Hunt Group ->  [C(163) -  D(129) – A(122)] -> Fwd to Voice Mail (A)
 
-        The script looks at the last forwarding station, matches this against a hunt pilot dn pattern.
-        If matched, it removes all diversion headers and configures a single diversion header, with a voice 
-        mailbox specified as a script param.
+        Script requirement is to prefix a new header to the existing list of headers.  IF a REWRITE of the RDNIS is
+        only required, this can be achieved with a simple API call/gsub, a masking, or a transformation on CUCM
+        without using a script.
 
         Supported matching multiple hunt pilots and for routing to the same final voice mailbox.
 
@@ -60,13 +60,10 @@ function M.outbound_INVITE(msg)
             trace.format("New first Diversion header is '%s'", newForwardingStation)
             -- insert new header at start of list
             -- table.insert(diversionTable, 1, newForwardingStation)  -- table built-ins not supported by CUCM
-
             -- remove existing Diversion headers from SIP message
-            for k,v in ipairs(msg:getHeaderValues("Diversion")) do
-                msg:removeHeaderValue("Diversion", v)
-            end
-
-            msg:addHeader("Diversion", newForwardingStation) -- workaround for table.insert limitation
+            msg:removeHeader("Diversion")
+             -- workaround for table.insert limitation
+            msg:addHeader("Diversion", newForwardingStation)
             -- write new header from modified Diversion table
             for k,v in ipairs(diversionTable) do
                 msg:addHeader("Diversion", v)
