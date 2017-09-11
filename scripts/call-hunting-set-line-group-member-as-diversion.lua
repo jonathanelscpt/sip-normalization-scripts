@@ -62,9 +62,10 @@ function M.outbound_INVITE(msg)
             -- table.insert(diversionTable, 1, newForwardingStation)  -- table built-ins not supported by CUCM
 
             -- remove existing Diversion headers from SIP message
-            for k,v in ipairs(msg:getHeaderValues("Diversion")) do
-                msg:removeHeaderValue("Diversion", v)
-            end
+            msg:removeHeader("Diversion")
+            -- for k,v in ipairs(msg:getHeaderValues("Diversion")) do
+            --     msg:removeHeaderValue("Diversion", v)
+            -- end
 
             msg:addHeader("Diversion", newForwardingStation) -- workaround for table.insert limitation
             -- write new header from modified Diversion table
