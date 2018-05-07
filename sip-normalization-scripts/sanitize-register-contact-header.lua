@@ -13,6 +13,10 @@
         To this:
 
             Contact: <sip: 3001@10.0.1.56: 50772>; q = 1
+
+    Limitations:
+
+        This was written on community request.  Not personally tested for support with REGISTER messages.
 --]]
 
 
