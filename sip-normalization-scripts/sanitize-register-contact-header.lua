@@ -4,7 +4,8 @@
     
     Description:
     
-        Sanitize contact heard to strip attributes and prefix a "q value" for inbound REGISTER messages.  A "q = 1" suffix is hard-coded.
+        Sanitize contact heard to strip attributes and prefix a "q value" 
+        for inbound REGISTER messages.  The "q = 1" suffix is hard-coded.
 
         Converts this:
 
@@ -16,7 +17,8 @@
 
     Limitations:
 
-        This was written on community request.  Not personally tested for support with REGISTER messages.
+        This was written on community request.  
+        Not personally tested for support with REGISTER messages.
 --]]
 
 
